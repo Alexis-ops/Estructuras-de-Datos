@@ -10,6 +10,8 @@ struct Lista * crear(int dato);
 struct Lista * insertar (struct Lista * lista, int dato);
 void invertir(struct Lista ** lista);
 void mostrar(struct Lista * lista);
+struct Lista * eliminarndato(struct Lista * lista,int eliminar);
+struct Lista * final(struct Lista * lista,int dato);
 
 int main(int argc, char *argv[]) {
 	struct Lista *miLista;
@@ -21,9 +23,9 @@ int main(int argc, char *argv[]) {
 	miLista=insertar(miLista,27);
 	miLista=insertar(miLista,2020);
 	miLista=insertar(miLista,1);
-	mostrar(miLista);
-	printf("invertir lista \n");
-	invertir(&miLista);
+	//printf("invertir lista \n");
+	//invertir(&miLista);
+	miLista=eliminarndato(miLista,2020);
 	mostrar(miLista);
 	return 0;
 }
@@ -50,15 +52,46 @@ void mostrar(struct Lista * lista){
 	printf("\n");
 }
 void invertir(struct Lista ** lista){
-	struct Lista * aux= *lista;
-	struct Lista * anterior=NULL;
-	struct Lista * despues=NULL;
+	struct Lista * respaldo = *lista;
+	struct Lista * anterior = NULL;
+	struct Lista * despues = NULL;
 
-	while (aux != NULL){
-		despues=aux->siguiente;
-		aux->siguiente=anterior;
-		anterior=aux;
-		aux=despues;		
+	while (respaldo != NULL){
+		despues = respaldo->siguiente;
+		respaldo->siguiente = anterior;
+		anterior=respaldo;
+		respaldo=despues;		
 	}
 	*lista=anterior;
+}
+struct Lista * eliminarndato(struct Lista * lista,int eliminar){
+	if (lista = NULL){
+		return NULL;
+	}
+	struct Lista * buscador = lista;
+	struct Lista * anterior = NULL;
+	while (buscador->dato != eliminar){
+		anterior = buscador;
+		buscador=buscador->siguiente;
+	}
+	anterior->siguiente=buscador->siguiente;
+	free(buscador);
+	return lista;
+}
+/*
+
+1 - error en la memoria
+0 - todo copado mi parce
+*/
+struct Lista * final(struct Lista * lista, int dato){
+	struct Lista * nuevodato = crear(dato);
+	struct Lista * aux = lista;
+	if(nuevodato=NULL){
+		return NULL;
+	}
+	while(aux->siguiente!= NULL){
+		aux=aux->siguiente;
+	}
+	aux->siguiente= nuevodato;
+	return nuevodato;
 }
