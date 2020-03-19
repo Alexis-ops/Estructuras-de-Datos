@@ -36,7 +36,7 @@ struct Lista * crear(int dato){
 		return NULL;
 	}
 	nuevo->dato=dato;
-	nuevo->siguiente=NULL;
+	nuevo->siguiente=NULL; //¿Porqué a NULL?
 	return nuevo;
 }
 struct Lista * insertar (struct Lista * lista, int dato){
