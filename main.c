@@ -14,7 +14,7 @@ struct Lista * eliminarndato(struct Lista * lista,int eliminar);
 struct Lista * final(struct Lista * lista,int dato);
 
 int main(int argc, char *argv[]) {
-	struct Lista *miLista = NULL; /*<< faltaba esta inicialización, de la otra forma empezaba con valor basura*/
+	struct Lista *miLista=NULL;
 	if(miLista=NULL){
 		printf("No Se Creó");
 		return -1;
@@ -25,8 +25,8 @@ int main(int argc, char *argv[]) {
 	miLista=insertar(miLista,1);
 	//printf("invertir lista \n");
 	//invertir(&miLista);
-//	miLista=eliminarndato(miLista,1);
-/*	miLista=final(miLista,10);*/
+	miLista=eliminarndato(miLista,2020);
+	miLista=final(miLista,10);
 	mostrar(miLista);
 	return 0;
 }
@@ -37,9 +37,7 @@ struct Lista * crear(int dato){
 		return NULL;
 	}
 	nuevo->dato=dato;
-	nuevo->siguiente=NULL; /*¿Porqué a NULL? R= es a NULL porque en este punto, esta función no sabe
-			 para qué vas a usar el nodo nuevo, por lo tanto lo deja en un estado conocido
-			 ya cuando lo regreses se puede modificar al valor que se necesite. */
+	nuevo->siguiente=NULL;
 	return nuevo;
 }
 struct Lista * insertar (struct Lista * lista, int dato){
@@ -70,9 +68,9 @@ void invertir(struct Lista ** lista){
 struct Lista * eliminarndato(struct Lista * lista,int eliminar){
 	struct Lista * buscador = lista;
 	struct Lista*auxiliar=NULL;
-	if (lista = NULL){
+	/*if (lista = NULL){
 		return NULL;
-	}
+	}*/
 	if(buscador->dato == eliminar){
 		lista=lista->siguiente;
 		free(buscador);
@@ -86,17 +84,13 @@ struct Lista * eliminarndato(struct Lista * lista,int eliminar){
 	}
 	return lista;
 }
-/*
-1 - error en la memoria
-0 - todo copado mi parce
-*/
 struct Lista * final(struct Lista * lista, int dato){
 	struct Lista * nuevodato = crear(dato);
 	struct Lista * aux = lista;
-	if(nuevodato=NULL){
+	/*if(nuevodato=NULL){
 		return NULL;
-	}
-	while(aux->siguiente!= NULL){
+	}*/
+	while(aux->siguiente != NULL){
 		aux=aux->siguiente;
 	}
 	aux->siguiente= nuevodato;
