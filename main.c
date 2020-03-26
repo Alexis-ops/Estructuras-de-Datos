@@ -14,7 +14,7 @@ struct Lista * eliminarndato(struct Lista * lista,int eliminar);
 struct Lista * final(struct Lista * lista,int dato);
 
 int main(int argc, char *argv[]) {
-	struct Lista *miLista;
+	struct Lista *miLista = NULL; /*<< faltaba esta inicialización, de la otra forma empezaba con valor basura*/
 	if(miLista=NULL){
 		printf("No Se Creó");
 		return -1;
@@ -26,7 +26,7 @@ int main(int argc, char *argv[]) {
 	//printf("invertir lista \n");
 	//invertir(&miLista);
 //	miLista=eliminarndato(miLista,1);
-	miLista=final(miLista,10);
+/*	miLista=final(miLista,10);*/
 	mostrar(miLista);
 	return 0;
 }
@@ -37,7 +37,9 @@ struct Lista * crear(int dato){
 		return NULL;
 	}
 	nuevo->dato=dato;
-	nuevo->siguiente=NULL; //¿Porqué a NULL?
+	nuevo->siguiente=NULL; /*¿Porqué a NULL? R= es a NULL porque en este punto, esta función no sabe
+			 para qué vas a usar el nodo nuevo, por lo tanto lo deja en un estado conocido
+			 ya cuando lo regreses se puede modificar al valor que se necesite. */
 	return nuevo;
 }
 struct Lista * insertar (struct Lista * lista, int dato){
