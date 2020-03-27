@@ -25,7 +25,7 @@ int main(int argc, char *argv[]) {
 	miLista=insertar(miLista,1);
 	//printf("invertir lista \n");
 	//invertir(&miLista);
-	miLista=eliminarndato(miLista,2020);
+	miLista=eliminarndato(miLista,27);
 	miLista=final(miLista,10);
 	mostrar(miLista);
 	return 0;
@@ -67,7 +67,7 @@ void invertir(struct Lista ** lista){
 }
 struct Lista * eliminarndato(struct Lista * lista,int eliminar){
 	struct Lista * buscador = lista;
-	struct Lista*auxiliar=NULL;
+	struct Lista * anterior=NULL;
 	/*if (lista = NULL){
 		return NULL;
 	}*/
@@ -75,12 +75,12 @@ struct Lista * eliminarndato(struct Lista * lista,int eliminar){
 		lista=lista->siguiente;
 		free(buscador);
 	}else{
-		while ((buscador->siguiente)->dato != eliminar){
+		while (buscador->dato != eliminar){
+			anterior=buscador;
 			buscador=buscador->siguiente;
 		}
-		auxiliar=buscador->siguiente;
-		buscador->siguiente=(buscador->siguiente)->siguiente;
-		free(auxiliar);
+		anterior->siguiente=buscador->siguiente;
+		free(buscador);
 	}
 	return lista;
 }
