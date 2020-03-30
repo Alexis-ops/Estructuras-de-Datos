@@ -1,16 +1,27 @@
 #include <stdio.h>
 #include <stdlib.h>
 #define size 10
+
+/* Esta estructura debería estar en un archivo .h*/
 struct Lista{
   int dato;
-  struct nose*siguiente;
+  struct Lista *siguiente;  
 };
+
+/* Un nombre más adecuado es TablaHash, el 
+nombre Arreglo confunde */
 struct Arreglo{
   int vector[size];
 };
+
 void insertar(struct Arreglo*arreglo,int dato);
 int hash(int dato);
+
+
+/* Para una tabla Hash no se puede programar la función mostrar,
+en lugar de eso se programará la función: buscar */
 void mostrar(struct Arreglo*arreglo);
+
 //int crear(int dato);
 //struct Lista * enqueve(struct Lista*lista, int dato);
 
