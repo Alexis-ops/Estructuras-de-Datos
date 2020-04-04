@@ -11,12 +11,15 @@ struct ListaC * insertar(struct ListaC * lista, int dato);
 void mostrar (struct ListaC * lista);
 
 int main(){
-
+  struct ListaC*miLista=NULL;
+  miLista=insertar(miLista,1);
+  printf("%d",miLista->dato);
+  return 0;
 }
 
 struct ListaC * crear (int elemento){
   struct ListaC * nuevodato = NULL;
-  nuevodato = (struct ListaC *)malloc(sizeof(struct Listac));
+  nuevodato = (struct ListaC *)malloc(sizeof(struct ListaC));
   if(nuevodato == NULL){
     return NULL;
   }
@@ -26,7 +29,14 @@ struct ListaC * crear (int elemento){
 }
 struct ListaC * insertar(struct ListaC*lista, int dato){
   struct ListaC * datos=crear(dato);
-  struct ListaC * final=NULL;
-  datos->siguiente=lista;
-  
+  if(lista==NULL){
+    datos->siguiente=lista->;
+  }else{
+
+  }
+  return lista;
+}
+void mostrar(struct ListaC*lista){
+  struct ListaC*aux=lista;
+  printf("%d\n",aux->dato);
 }
