@@ -7,8 +7,8 @@ struct Lista{
 };
 
 struct Lista * crear(int dato);
-struct Lista * insertar (struct Lista * lista, int dato);
-void invertir(struct Lista ** lista);
+struct Lista * insertar(struct Lista * lista, int dato);
+struct Lista * invertir(struct Lista * lista);
 void mostrar(struct Lista * lista);
 struct Lista * eliminarndato(struct Lista * lista,int eliminar);
 struct Lista * final(struct Lista * lista,int dato);
@@ -23,11 +23,10 @@ int main(int argc, char *argv[]) {
 	miLista=insertar(miLista,27);
 	miLista=insertar(miLista,2020);
 	miLista=insertar(miLista,1);
-	//printf("invertir lista \n");
-	//invertir(&miLista);
-	miLista=eliminarndato(miLista,27);
+/*	miLista=eliminarndato(miLista,27);
 	miLista=final(miLista,10);
-	miLista=final(miLista,11);
+	miLista=final(miLista,11);*/
+	miLista=invertir(miLista);
 	mostrar(miLista);
 	return 0;
 }
@@ -53,8 +52,8 @@ void mostrar(struct Lista * lista){
 	}
 	printf("\n");
 }
-void invertir(struct Lista ** lista){
-	struct Lista * respaldo = *lista;
+struct Lista*invertir(struct Lista * lista){
+	struct Lista * respaldo = lista;
 	struct Lista * anterior = NULL;
 	struct Lista * despues = NULL;
 
@@ -64,7 +63,8 @@ void invertir(struct Lista ** lista){
 		anterior=respaldo;
 		respaldo=despues;		
 	}
-	*lista=anterior;
+	lista=anterior;
+	return anterior;
 }
 struct Lista * eliminarndato(struct Lista * lista,int eliminar){
 	struct Lista * buscador = lista;
