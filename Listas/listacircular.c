@@ -29,10 +29,11 @@ struct ListaC * crear (int elemento){
 }
 struct ListaC * insertar(struct ListaC*lista, int dato){
   struct ListaC * datos=crear(dato);
+  struct ListaC * inicio=NULL;
   if(lista==NULL){
-    datos->siguiente=lista->;
+    datos->siguiente=lista;
+    inicio->siguiente=datos;
   }else{
-
   }
   return lista;
 }
