@@ -7,23 +7,24 @@ struct Lista{
 };
 struct Lista * insertar(struct Lista*lista,int dato, int gerarquia);
 struct Lista * crear(int dato, int gerarquia);
-void mostrarconprioridad(struct Lista*lista,int gerarquia);
+void mostrarconprioridad(struct Lista*lista);
 void mostrar(struct Lista*lista);
 struct Lista*eliminar(struct Lista*lista, int eliminar);
-/*
+/*struct Lista*acomodar(struct Lista*lista);
  * Gerarquia  1,2,3
- *  menor gerarquia 1, mayor gerarquia 3
+ *  menor gerarquia 3, mayor gerarquia 1
  */
 int main(){
 	struct Lista*miLista=NULL;
 	miLista=insertar(miLista,1,1);
 	miLista=insertar(miLista,2,2);
-	miLista=insertar(miLista,2,2);
 	miLista=insertar(miLista,3,2);
 	miLista=insertar(miLista,4,1);
 	miLista=insertar(miLista,5,3);
+	miLista=insertar(miLista,6,3);
 	miLista=eliminar(miLista,2);
-	mostrar(miLista);
+	mostrarconprioridad(miLista);
+
 	return 0;
 }
 struct Lista * insertar(struct Lista*lista,int dato, int gerarquia){
@@ -51,37 +52,29 @@ struct Lista * crear(int dato, int gerarquia){
 	nuevo->siguiente=NULL;
 	return nuevo;
 }
-void mostrarconprioridad(struct Lista*lista, int gerarquia){
+void mostrarconprioridad(struct Lista*lista){
 	struct Lista*recorrer=lista;
-	switch(gerarquia){
-		case 1:
 		while(recorrer!=NULL){
-			if(recorrer->prioridad == gerarquia){
+			if(recorrer->prioridad == 1){
+				printf("%d,",recorrer->dato);
+			}
+			recorrer=recorrer->siguiente;
+		}
+		recorrer=lista;
+		while(recorrer!=NULL){
+			if(recorrer->prioridad == 2){
+				printf("%d,",recorrer->dato);
+			}
+			recorrer=recorrer->siguiente;
+		}
+		recorrer=lista;
+		while(recorrer!=NULL){
+			if(recorrer->prioridad == 3){
 				printf("%d,",recorrer->dato);
 			}
 			recorrer=recorrer->siguiente;
 		}
 		printf("\n");
-		case 2:
-		while(recorrer!=NULL){
-			if(recorrer->prioridad == gerarquia){
-				printf("%d,",recorrer->dato);
-			}
-			recorrer=recorrer->siguiente;
-		}
-		printf("\n");
-		break;
-		case 3:
-		while(recorrer!=NULL){
-			if(recorrer->prioridad == gerarquia){
-				printf("%d,",recorrer->dato);
-			}
-			recorrer=recorrer->siguiente;
-		}
-		printf("\n");
-		break;
-	}
-	printf("\n");
 }
 void mostrar(struct Lista*lista){
 	struct Lista*recorrer=lista;
@@ -107,3 +100,23 @@ struct Lista*eliminar(struct Lista*lista, int eliminar){
 		}
 	return lista;
 } 
+/*struct Lista*acomodar(struct Lista*lista){
+	struct Lista*recorrer=lista;
+	struct Lista*antes=NULL;
+	struct Lista*copia=NULL;
+	int x=0;
+	while(recorrer!=NULL){
+		if(recorrer->prioridad==3){
+			copia=recorrer;
+			recorrer=recorrer->siguiente;
+			antes->siguiente=recorrer;
+			copia->siguiente=lista;
+			lista=copia;
+			
+		}else{
+			antes=recorrer;
+			recorrer=recorrer->siguiente;
+		}
+	}
+	return lista;
+}*/
