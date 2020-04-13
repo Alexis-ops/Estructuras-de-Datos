@@ -13,7 +13,11 @@ void mostrar (struct ListaC * lista);
 int main(){
   struct ListaC*miLista=NULL;
   miLista=insertar(miLista,1);
-  printf("%d",miLista->dato);
+  miLista=insertar(miLista,2);
+  miLista=insertar(miLista,4);
+  miLista=insertar(miLista,5);
+  miLista=insertar(miLista,6);
+  mostrar(miLista);
   return 0;
 }
 
@@ -29,15 +33,19 @@ struct ListaC * crear (int elemento){
 }
 struct ListaC * insertar(struct ListaC*lista, int dato){
   struct ListaC * datos=crear(dato);
-  struct ListaC * inicio=NULL;
-  if(lista==NULL){
-    datos->siguiente=lista;
-    inicio->siguiente=datos;
+  if(lista == NULL){
+    datos->siguiente=datos;
+   /*¿Comó hago que el primero apunte asi mismo y que al insertar el segundo dato el primero punte al ultimo que se inserto?*/
   }else{
+    datos->siguiente=lista->siguiente;
   }
-  return lista;
+  return datos;
 }
 void mostrar(struct ListaC*lista){
   struct ListaC*aux=lista;
-  printf("%d\n",aux->dato);
+  do{
+    printf("%d,",aux->dato);
+    aux=aux->siguiente;
+  }while(aux->siguiente!=lista);
+  printf("\n");
 }
