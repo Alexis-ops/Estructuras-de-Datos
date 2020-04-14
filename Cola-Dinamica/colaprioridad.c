@@ -1,32 +1,4 @@
-#include<stdio.h>
-#include<stdlib.h>
-struct Lista{
-  int dato;
-  int prioridad;
-  struct Lista*siguiente;
-};
-struct Lista * insertar(struct Lista*lista,int dato, int gerarquia);
-struct Lista * crear(int dato, int gerarquia);
-void mostrarconprioridad(struct Lista*lista);
-void mostrar(struct Lista*lista);
-struct Lista*eliminar(struct Lista*lista, int eliminar);
-/*struct Lista*acomodar(struct Lista*lista);
- * Gerarquia  1,2,3
- *  menor gerarquia 3, mayor gerarquia 1
- */
-int main(){
-	struct Lista*miLista=NULL;
-	miLista=insertar(miLista,1,1);
-	miLista=insertar(miLista,2,2);
-	miLista=insertar(miLista,3,2);
-	miLista=insertar(miLista,4,1);
-	miLista=insertar(miLista,5,3);
-	miLista=insertar(miLista,6,3);
-	miLista=eliminar(miLista,2);
-	mostrarconprioridad(miLista);
-
-	return 0;
-}
+#include "colaprioridad.h"
 struct Lista * insertar(struct Lista*lista,int dato, int gerarquia){
 	struct Lista*datos=crear(dato,gerarquia);
 	struct Lista*recorrer=lista;

@@ -1,36 +1,8 @@
-#include<stdio.h>
-#include<stdlib.h>
-#define max 10
-struct Cola{
-	int final;
-	int inicio;
-	int array[max];
-};
-void inicializar(struct Cola*cola);
-int vacia(struct Cola*cola);
-int llena(struct Cola*cola);
-void agregar(struct Cola*cola, int dato);
-void borra(struct Cola*cola);
-void atender(struct Cola*cola);
-void mostrar(struct Cola*cola);
-int main(){
-	struct Cola cola;
-	inicializar(&cola);
-	agregar(&cola,1);
-	agregar(&cola,2);
-	agregar(&cola,3);
-	agregar(&cola,4);
-	agregar(&cola,5);
-	agregar(&cola,6);
-	//printf("el primer elemento es %d, el ultimo elemento es %d.\n",cola.array[cola.inicio],cola.array[cola.final]);
-	mostrar(&cola);
-	borra(&cola);
-	printf("el primer elemento es %d, el ultimo elemento es %d.\n",cola.array[cola.inicio],cola.array[cola.final]);
-	mostrar(&cola);
-}
+#include "cola.h"
+
 /*
-1 - eh veradá
-0 - no eh verdá
+1 - eh verda
+0 - no eh verda
 */
 void inicializar(struct Cola*cola){
 	cola->final=-1;

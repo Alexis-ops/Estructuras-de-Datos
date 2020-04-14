@@ -1,31 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-#define max 5
-
-struct ColaC{
-	int inicio;
-	int final;
-	int array[max];
-};
-void iniciar(struct ColaC*cola);
-int vacia(struct ColaC*cola);
-int llena(struct ColaC*cola);
-int elementos(struct ColaC*cola);
-void enqueve(struct ColaC*cola,int dato);
-void mostrar(struct ColaC*cola);
-void dequeve(struct ColaC*cola);
-int main(){
-  struct ColaC cola;
-  iniciar(&cola);
-  enqueve(&cola,1);
-  enqueve(&cola,2);
-  enqueve(&cola,3);
-  enqueve(&cola,4);
-  enqueve(&cola,5);
-  dequeve(&cola);
-  printf("El inicio es: %d, El final es: %d \n", cola.array[cola.inicio],cola.array[cola.final]);
-  mostrar(&cola);
-}
+#include "colaC.h"
 
 void iniciar(struct ColaC*cola){
   cola->final=-1;

@@ -1,39 +1,4 @@
-#include <stdio.h>
-#include <stdlib.h>
-//notas cuantos_hay es un contador
-struct Vector{
-  int capacidad;
-  int cuantos_hay;
-  int *datos;
-};
-
-void mostrar(struct Vector*);
-int agrandar(struct Vector*);
-int hay_espacio( struct Vector* );
-int agregar(struct Vector*, int );
-int iniciar(struct Vector*);
-
-int main(){
-  int i=0;
-  int n=0;
-  struct Vector vector;
-  iniciar( &vector );
-  printf("Dame el valor de n: \n");
-  scanf("%d", &n);
-  for(i=1; i<n; i++){
-    agregar(&vector,i);
-    mostrar( &vector);
-    //printf("%d ", *(vector.datos+i) );
-  }
-  return 0;
-}
-
-/*
--2   no asigno memoria
--1 - parametro nulo 
- 0 - todo correcto
-*/
-
+#include "A_D.h"
 int iniciar(struct Vector *vector){
   if( vector== NULL){
     return -1;
