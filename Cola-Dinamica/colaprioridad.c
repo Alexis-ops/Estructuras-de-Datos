@@ -1,4 +1,5 @@
 #include "colaprioridad.h"
+/* Se deben de acomodar en una lista enlaza, es decir crear una funcion acomodar donde estas las ordene dependiendo la prioridad*/
 struct Lista * insertar(struct Lista*lista,int dato, int gerarquia){
 	struct Lista*datos=crear(dato,gerarquia);
 	struct Lista*recorrer=lista;
