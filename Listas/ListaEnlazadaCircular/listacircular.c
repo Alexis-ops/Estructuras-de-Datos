@@ -1,5 +1,6 @@
 #include "listacircular.h"
-
+/* Tengo entendido que el primer nodo se apunta a la cabezera y la cabeza*/
+/* debe de apuntar a este primer nodo  */
 struct Lista * crear(int dato){
 	struct Lista * nuevo = NULL;
 	nuevo = (struct Lista*)malloc(sizeof(struct Lista));
@@ -7,6 +8,7 @@ struct Lista * crear(int dato){
 		return NULL;
 	}
 	nuevo->dato=dato;
+	/* Al crear el nodo se debe apuntar a NULL */
 	nuevo->siguiente=NULL;
 	return nuevo;
 }
@@ -16,6 +18,7 @@ struct Lista * insertar (struct Lista * lista, int dato){
 	return nueva;
 }
 void mostrar(struct Lista * lista){
+	/* Como seria la funcion mostrar sin puntero que me diga donde esta el fin*/
 	while (lista != NULL){
 		printf("%d, ", lista->dato);
 		lista= lista->siguiente;
@@ -66,4 +69,4 @@ struct Lista * final(struct Lista * lista, int dato){
 	}
 	aux->siguiente=nuevodato;
 	return lista;
-}
+	}
