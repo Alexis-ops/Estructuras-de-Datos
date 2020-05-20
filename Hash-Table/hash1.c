@@ -5,12 +5,13 @@
 /* Esta estructura debería estar en un archivo .h*/
 struct Lista{
   int dato;
+  int key;
   struct Lista *siguiente;  
 };
 
 /* Un nombre más adecuado es TablaHash, el 
 nombre Arreglo confunde */
-struct Arreglo{
+struct TablaHash{
   int vector[size];
 };
 
@@ -22,8 +23,8 @@ int hash(int dato);
 en lugar de eso se programará la función: buscar */
 void mostrar(struct Arreglo*arreglo);
 
-//int crear(int dato);
-//struct Lista * enqueve(struct Lista*lista, int dato);
+/*int crear(int dato);
+struct Lista * enqueve(struct Lista*lista, int dato);*/
 
 int main(){
   struct Arreglo arreglo;
@@ -47,12 +48,12 @@ void insertar(struct Arreglo*arreglo,int dato){
 int hash(int dato){
 	return (dato+4)%size;
 }
-void mostrar(struct Arreglo*arreglo){
+/*void mostrar(struct Arreglo*arreglo){
 	int x=0;
 	for(x=0;x<size;x++){
 		printf("%d\n",arreglo->vector[x]);
 	}
-}
+}*/
 /*int crear(int dato){
 	struct Lista*nuevo=NULL;
 	nuevo=(struct Lista*)malloc(sizeof(struct Lista));
