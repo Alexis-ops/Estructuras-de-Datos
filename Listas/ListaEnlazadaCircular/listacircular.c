@@ -13,21 +13,21 @@ struct Lista * crear(int dato){
 /*no estoy seguro si mi error esta en insertar(al inicio) o en buscar */
 struct Lista * insertar (struct Lista * lista, int dato){
 	struct Lista * nueva = crear (dato);
-	if(lista  == NULL){
-		lista=nueva;
-		nueva->siguiente=lista->siguiente;
+	if(lista == NULL){
+		nueva->siguiente=nueva;
 		return nueva;
 	}
 	nueva->siguiente=lista;
 	return nueva;
 }
 void mostrar(struct Lista * lista){
-	struct Lista * Final=lista;
-	struct Lista * Aux=lista;
-	do{
-		printf("%d,",Aux->dato);
-		Aux=Aux->siguiente;
-	}while (Aux != Final);
+	struct Lista * recorrer=lista;
+	printf("%d",recorrer->dato);	
+	recorrer=recorrer->siguiente;
+	while (recorrer != lista){
+	printf("%d,",recorrer->dato);
+	recorrer=recorrer->siguiente;
+	}
 	printf("\n");
 }
 struct Lista * eliminarndato(struct Lista * lista,int eliminar){
