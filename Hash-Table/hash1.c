@@ -7,7 +7,7 @@ struct Lista{
   int dato;
   struct Lista *siguiente;  
 };
-struct Lista * cabeza[]=NULL;
+struct Lista * cabeza[]={NULL};
 struct Lista * c;
 void insertar(){
 	int i;
@@ -19,7 +19,7 @@ void insertar(){
 	Nlista->dato=key;
 	Nlista->siguiente=NULL;
 	if(cabeza[i] == NULL){
-		cabeza[i] == Nlista
+		cabeza[i] == Nlista;
 	}
 	else {
 		c=cabeza[i];
@@ -35,8 +35,8 @@ void buscar(){
 	printf("ingresa el elemento a buscar\n");
 	scanf("%d",&key);
 	indice=key%size;
-	if(head[indice]==NULL){
-		printf("Elemento no encontrado\d");
+	if(cabeza[indice]==NULL){
+		printf("Elemento no encontrado\n");
 	}else{
 		for(c=cabeza[indice];c!=NULL;c=c->siguiente){
 			if(c->dato == key){
@@ -70,7 +70,7 @@ int main(){
   int key;
   while (1){
 	  printf("\n presiona 1. Insertar\t 2.Mostrar\t3.buscar \t4.Salir \n ");
-	  scanf("%d",%opt);
+	  scanf("%d",&opt);
 	  switch(opt){
 		  case 1:
 			  insertar();
