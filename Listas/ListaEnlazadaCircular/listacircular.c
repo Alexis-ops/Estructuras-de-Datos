@@ -15,7 +15,8 @@ struct Lista * insertar (struct Lista * lista, int dato){
 	struct Lista * nueva = crear (dato);
 	if(lista  == NULL){
 		lista=nueva;
-		nueva->siguiente=nueva;
+		nueva->siguiente=lista->siguiente;
+		return nueva;
 	}
 	nueva->siguiente=lista;
 	return nueva;
@@ -26,7 +27,7 @@ void mostrar(struct Lista * lista){
 	do{
 		printf("%d,",Aux->dato);
 		Aux=Aux->siguiente;
-	}while (Aux->siguiente!=Final->siguiente);
+	}while (Aux != Final);
 	printf("\n");
 }
 struct Lista * eliminarndato(struct Lista * lista,int eliminar){
