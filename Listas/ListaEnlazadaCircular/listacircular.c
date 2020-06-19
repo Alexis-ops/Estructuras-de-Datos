@@ -1,4 +1,6 @@
 #include "listacircular.h"
+struct Lista * primero = NULL;
+struct Lista * ultimo  = NULL;
 
 struct Lista * crear(int dato){
 	struct Lista * nuevo = NULL;
@@ -10,32 +12,48 @@ struct Lista * crear(int dato){
 	nuevo->siguiente=NULL;
 	return nuevo;
 }
-/*no estoy seguro si mi error esta en insertar(al inicio) o en buscar */
-struct Lista * insertar (struct Lista * lista, int dato){
+struct Lista * insertarf (struct Lista * lista, int dato){
 	struct Lista * nueva = crear (dato);
-	if(lista == NULL){
+	if(primero == NULL){
+		primero=nueva;		
+		ultimo=nueva;
 		nueva->siguiente=nueva;
 		return nueva;
 	}
-	nueva->siguiente=lista;
+	else{
+		ultimo->siguiente=nueva;
+		nueva->siguiente=primero;
+		ultimo=nueva;
 	return nueva;
+	}
+}
+struct Lista * insertari (struct Lista * lista, int dato){
+	struct Lista * nueva = crear (dato);
+	if(primero == NULL){
+		primero=nueva;		
+		ultimo=nueva;
+		nueva->siguiente=nueva;
+		return nueva;
+	}
+	else{
+		nueva->siguiente=primero;
+		primero=nueva;
+		ultimo->siguiente=primero;
+		return nueva;
+	}
 }
 void mostrar(struct Lista * lista){
-	struct Lista * recorrer=lista;
-	printf("%d",recorrer->dato);	
-	recorrer=recorrer->siguiente;
-	while (recorrer != lista){
-	printf("%d,",recorrer->dato);
-	recorrer=recorrer->siguiente;
-	}
+	struct Lista * recorrer = lista;
+	recorrer = primero;
+	do{
+		printf("%d",recorrer->dato);
+		recorrer=recorrer->siguiente;
+	}while (recorrer != primero);
 	printf("\n");
 }
-struct Lista * eliminarndato(struct Lista * lista,int eliminar){
+struct Lista * eliminar(struct Lista * lista,int eliminar){
 	struct Lista * buscador = lista;
 	struct Lista * anterior=NULL;
-	/*if (lista = NULL){
-		return NULL;
-	}*/
 	if(buscador->dato == eliminar){
 		lista=lista->siguiente;
 		free(buscador);

@@ -1,5 +1,5 @@
 listacircular.o: listacircular.c
-	gcc listacircular.c -c
+	gcc listacircular.c -c 
 main.o: main.c
 	gcc main.c -c
 

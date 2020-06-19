@@ -7,7 +7,8 @@ struct Lista{
 };
 
 struct Lista * crear(int dato);
-struct Lista * insertar(struct Lista * lista, int dato);
-void mostrar(struct Lista * lista);
-struct Lista * eliminarndato(struct Lista * lista,int eliminar);
+struct Lista * insertarf(struct Lista * lista, int dato);
+struct Lista * insertari(struct Lista * lista, int dato);
+void mostrar (struct Lista * lista);
+struct Lista * eliminar(struct Lista * lista,int eliminar);
 
