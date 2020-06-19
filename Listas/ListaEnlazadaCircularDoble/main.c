@@ -21,8 +21,8 @@ int main(){
 	miLista=insertarI(miLista,123);
 	miLista=insertarI(miLista,97);
  	miLista=eliminar(miLista, 123);
-	miLista=insertarF(miLista,101);
-	miLista=insertarF(miLista,102);
+	/*miLista=insertarF(miLista,101);
+	miLista=insertarF(miLista,102);*/
 	mostrar(miLista);
 	mostrar_alreves(miLista);
 	return 0;
@@ -44,23 +44,30 @@ struct ListaDoble *crear(int dato){
 }
 struct ListaDoble *insertarI(struct ListaDoble*lista, int dato){
 	struct ListaDoble * nueva = crear (dato);
-	struct ListaDoble * nodo_anterior = NULL;
+	struct ListaDoble * nodo_despues = NULL;
 	if(primero == NULL){
 		primero=nueva;		
 		ultimo=nueva;
 		nueva->siguiente=nueva;
 		nueva->anterior=nueva;
-		nodo_anterior=nueva;
 		return nueva;
 	}
 	else{
 		nueva->siguiente=primero;
 		primero=nueva;
 		ultimo->siguiente=primero;
-		primero->anterior=ultimo;
-		nodo_anterior->anterior=nueva;
-		nodo_anterior=nueva;
-		return nueva;
+		if(nodo_despues == NULL){
+			nodo_despues=nueva;
+			nodo_despues->anterior=ultimo; /* creo aqui hay un error */
+			ultimo->anterior=nueva;
+			return nueva;
+		}
+		else{
+			nodo_despues->anterior=nueva;
+			nodo_despues=nueva;
+			nueva->anterior=ultimo;
+			return nueva;
+		}
 	}
 }
 struct ListaDoble *insertarF(struct ListaDoble*lista, int dato){
