@@ -1,6 +1,7 @@
-#include"arbol.h"
+#include"arbolAVL.h"
 
-int main (void)
+int
+main (void)
 {
   struct Arbol *raiz = NULL;
   raiz = insertar (raiz, 10);
@@ -10,6 +11,6 @@ int main (void)
   raiz = insertar (raiz, 510);
   raiz = insertar (raiz, 160);
   raiz = insertar (raiz, 180);
-  mostrar(raiz)
+  mostrar(raiz);
   return 0;
 }

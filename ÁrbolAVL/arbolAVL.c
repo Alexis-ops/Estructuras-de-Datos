@@ -1,6 +1,7 @@
-#include"arbol.h"
+#include"arbolAVL.h"
 
-struct Arbol * insertar (struct Arbol *raiz, int dato)
+struct Arbol *
+insertar (struct Arbol *raiz, int dato)
 {
   struct Arbol *nuevo = NULL;
   /* caso base */
@@ -38,6 +39,6 @@ mostrar (struct Arbol *raiz)
     }
 
   mostrar (raiz->izquierdo);
-  printf ("%d, ", raiz->dato);
+  printf ("%d  ", raiz->dato);
   mostrar (raiz->derecho);
 }
