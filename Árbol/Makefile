@@ -6,5 +6,5 @@ arbol.o: arbol.c
 	gcc -c arbol.c
 run: a.out
 	./a.out
-clear:
+clean:
 	rm a.out main.o arbol.o
