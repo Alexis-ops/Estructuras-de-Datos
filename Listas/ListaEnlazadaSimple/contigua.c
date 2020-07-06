@@ -39,7 +39,7 @@ struct Lista*invertir(struct Lista * lista){
 struct Lista * eliminarndato(struct Lista * lista,int eliminar){
 	struct Lista * buscador = lista;
 	struct Lista * anterior=NULL;
-	/*if (lista = NULL){
+	/*if (lista == NULL){
 		return NULL;
 	}*/
 	if(buscador->dato == eliminar){
