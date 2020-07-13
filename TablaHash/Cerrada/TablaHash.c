@@ -17,21 +17,12 @@ inicializar (struct TablaHash * tabla)
   return hash;
 }
 
-int
-funcion_hash (int dato)
-{
-  dato = dato * 7;
-  dato++;
-  dato = dato % 1000;
-  return dato;
-}
-
 struct TablaHash *
 insertar (struct TablaHash *hash, int dato)
 {
   int indice = 0;
   int aux;
-  indice = funcion_hash (indice);
+  indice = funcion_hash (dato);
   if (hash->posicion[indice] != -1)
     {
       aux = hash->posicion[indice];
@@ -46,6 +37,15 @@ insertar (struct TablaHash *hash, int dato)
       hash->posicion[indice] = dato;
     }
   return hash;
+}
+
+int
+funcion_hash (int dato)
+{
+  dato = dato * dato;
+  dato++;
+  dato = dato % 1000;
+  return dato;
 }
 
 void
