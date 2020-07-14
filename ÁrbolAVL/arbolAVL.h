@@ -2,7 +2,7 @@
 #include<stdio.h>
 struct Arbol
 {
-  int factor;			
+  int factor;
   int dato;
   struct Arbol *izquierdo;
   struct Arbol *derecho;

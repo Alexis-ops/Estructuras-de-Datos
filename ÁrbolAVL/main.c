@@ -11,6 +11,6 @@ main (void)
   raiz = insertar (raiz, 510);
   raiz = insertar (raiz, 160);
   raiz = insertar (raiz, 180);
-  mostrar(raiz);
+  mostrar (raiz);
   return 0;
 }

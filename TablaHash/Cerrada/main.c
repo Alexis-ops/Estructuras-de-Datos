@@ -3,7 +3,7 @@
 int
 main (void)
 {
-  struct TablaHash * tabla = NULL;
+  struct TablaHash *tabla = NULL;
   tabla = inicializar (tabla);
   tabla = insertar (tabla, 1);
   tabla = insertar (tabla, 10);

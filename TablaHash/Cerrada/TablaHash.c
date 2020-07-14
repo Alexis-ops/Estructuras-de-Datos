@@ -1,7 +1,7 @@
 #include "TablaHash.h"
 
 struct TablaHash *
-inicializar (struct TablaHash * tabla)
+inicializar (struct TablaHash *tabla)
 {
   int i = 0;
   struct TablaHash *hash = NULL;

@@ -1,6 +1,7 @@
 #include"arbol.h"
 
-int main (void)
+int
+main (void)
 {
   struct Arbol *raiz = NULL;
   raiz = insertar_Arbol (raiz, 10);

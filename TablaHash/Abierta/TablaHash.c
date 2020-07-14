@@ -2,10 +2,10 @@
 #include "Lista.h"
 
 struct Tabla *
-inicializar (struct Tabla * tabla)
+inicializar (struct Tabla *tabla)
 {
-  int i=0;
-  struct Tabla * Hash = NULL;
+  int i = 0;
+  struct Tabla *Hash = NULL;
   Hash = (struct Tabla *) malloc (sizeof (struct Tabla));
   if (Hash == NULL)
     {
@@ -21,7 +21,7 @@ inicializar (struct Tabla * tabla)
 int
 funcion_Hash (int dato)
 {
-  return (dato*2+3)%9;
+  return (dato * 2 + 3) % 9;
 }
 
 void
